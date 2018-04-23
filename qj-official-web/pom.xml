@@ -9,12 +9,12 @@
         <relativePath>../qj-official-parent/pom.xml</relativePath>
     </parent>
 
-    <artifactId>qj-official-admin</artifactId>
+    <artifactId>qj-official-web</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 
     <packaging>jar</packaging>
 
-    <name>qj-official-admin</name>
+    <name>qj-official-web</name>
     <description>qj-official 的spring boot版本</description>
 
     <dependencies>
