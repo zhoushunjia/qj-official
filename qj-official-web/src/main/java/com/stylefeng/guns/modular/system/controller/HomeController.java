@@ -20,7 +20,7 @@ import com.stylefeng.guns.modular.system.dao.LogDao;
 @Controller
 public class HomeController extends BaseController {
 
-	private String PREFIX = "/system/";
+	private String PREFIX = "/official/system/";
 
     @Resource
     private OperationLogMapper operationLogMapper;
@@ -28,29 +28,71 @@ public class HomeController extends BaseController {
     @Resource
     private LogDao logDao;
     
-    @RequestMapping(value = "/contactUs", method = RequestMethod.GET)
+    @RequestMapping(value = "/official/contactUs", method = RequestMethod.GET)
     public String contactUs(Model model) {
 
         return PREFIX + "/contactUs.html";
     }
-    @RequestMapping(value = "/team", method = RequestMethod.GET)
+    @RequestMapping(value = "/official/team", method = RequestMethod.GET)
     public String team(Model model) {
 
         return PREFIX + "/team.html";
     }
-    @RequestMapping(value = "/serviceContent", method = RequestMethod.GET)
+    @RequestMapping(value = "/official/serviceContent", method = RequestMethod.GET)
     public String serviceContent(Model model) {
 
         return PREFIX + "/serviceContent.html";
     }
-    @RequestMapping(value = "/FAQ", method = RequestMethod.GET)
+    @RequestMapping(value = "/official/FAQ", method = RequestMethod.GET)
     public String FAQ(Model model) {
 
         return PREFIX + "/FAQ.html";
     }
-    @RequestMapping(value = "/aboutUs", method = RequestMethod.GET)
+    @RequestMapping(value = "/official/aboutUs", method = RequestMethod.GET)
     public String aboutUs(Model model) {
 
         return PREFIX + "/aboutUs.html";
     }
+//  ----------------------- 案例  
+    @RequestMapping(value = "/official/al/smartCampus", method = RequestMethod.GET)
+    public String smartCampus(Model model) {
+
+        return PREFIX + "/al/smartCampus.html";
+    }    
+    @RequestMapping(value = "/official/al/worfMan", method = RequestMethod.GET)
+    public String worfMan(Model model) {
+
+        return PREFIX + "/al/worfMan.html";
+    }    
+    @RequestMapping(value = "/official/al/tianhao", method = RequestMethod.GET)
+    public String tianhao(Model model) {
+
+        return PREFIX + "/al/tianhao.html";
+    }         
+    @RequestMapping(value = "/official/al/fly", method = RequestMethod.GET)
+    public String fly(Model model) {
+
+        return PREFIX + "/al/fly.html";
+    }         
+    @RequestMapping(value = "/official/al/weCourse", method = RequestMethod.GET)
+    public String weCourse(Model model) {
+
+        return PREFIX + "/al/weCourse.html";
+    }         
+    @RequestMapping(value = "/official/al/vjian", method = RequestMethod.GET)
+    public String vjian(Model model) {
+
+        return PREFIX + "/al/vjian.html";
+    }         
+    @RequestMapping(value = "/official/al/lx", method = RequestMethod.GET)
+    public String lx(Model model) {
+
+        return PREFIX + "/al/lx.html";
+    }         
+    @RequestMapping(value = "/official/al/kitchen", method = RequestMethod.GET)
+    public String kitchen(Model model) {
+
+        return PREFIX + "/al/kitchen.html";
+    }             
+    
 }

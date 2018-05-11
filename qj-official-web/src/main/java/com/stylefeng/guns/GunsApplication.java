@@ -12,7 +12,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 /**
  * SpringBoot方式启动类
  *
- * @author stylefeng
+ * @author stylefeng111111111111 
  * @Date 2017/5/21 12:06
  */
 @SpringBootApplication
@@ -22,7 +22,7 @@ public class GunsApplication extends WebMvcConfigurerAdapter {
 
     @Autowired
     GunsProperties gunsProperties;
-//密码111111
+    //密码111111
     /**
      * 增加swagger的支持
      */
@@ -36,6 +36,6 @@ public class GunsApplication extends WebMvcConfigurerAdapter {
 
     public static void main(String[] args) {
         SpringApplication.run(GunsApplication.class, args);
-        logger.info("GunsApplication is success!");
+        logger.info("启匠科技官网    启动成功 !!!");
     }
 }

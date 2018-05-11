@@ -139,6 +139,13 @@
         var isCycling = this.interval;
         var direction = type == 'next' ? 'left' : 'right';
         var that = this;
+        
+        if(!$next[0]){
+        	return false;
+        }         
+        if(typeof $next[0].offsetWidth == undefined){
+        	return false;
+        }
 
         if ($next.hasClass('active')) return (this.sliding = false);
 
@@ -162,7 +169,7 @@
 
         var slidEvent = $.Event('slid.Wqdcarousel', {
             relatedTarget: relatedTarget,
-            direction: direction
+            direction: direction  
         }); // yes, "slid"
         if ($.support.transition && this.$element.hasClass('slide')) {
             $next.addClass(type);
@@ -178,8 +185,14 @@
                 }, 0);
             }).emulateTransitionEnd(Wqdcarousel.TRANSITION_DURATION);
         } else {
-            $active.removeClass('active');
-            $next.addClass('active');
+//        	$active.removeClass('active');
+//        	debugger
+//        	if($active.length==1){
+        		 
+//        	}
+//        	$next.parent().find(">.item").removeClass('active');
+//        
+//            $next.addClass('active');
             this.sliding = false;
             this.$element.trigger(slidEvent);
         }

@@ -139,7 +139,7 @@
 .wqdCarousel .carousel-indicators.left{text-align: left}
 .wqdCarousel .carousel-indicators.center{text-align: center}
 .wqdCarousel .carousel-indicators.right{text-align: right}
-.wqdCarousel .carousel-indicators.del{display:none;}
+.wqdCarousel .carousel-indicators.del{display:none;}  
 /*按钮切换*/
 /*.wqdCarousel .carousel-control.btn1{border-radius:200px;}
 .wqdCarousel .carousel-control.btn2{border-radius:0px;}

@@ -19,7 +19,8 @@ import java.util.Map;
 @Controller
 @RequestMapping("/blackboard")
 public class BlackboardController extends BaseController {
-
+	
+//	private String PREFIX = "/view/";
     @Autowired
     NoticeDao noticeDao;
 

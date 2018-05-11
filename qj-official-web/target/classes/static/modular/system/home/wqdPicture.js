@@ -265,7 +265,7 @@ $(function() {
     pictureEvent.bindEvent();
 });
 //加载完成后的效果
-$.getScript("/static/modular/js/phone/plugin/wqdIscroll.js", function(data, textStatus, jqxhr) {
+$.getScript("/static/phone/plugin/wqdIscroll.js", function(data, textStatus, jqxhr) {
       var pc = $(window).width() > 768 ? true : false;
     var screenWid = $(window).width();
     var screenHei = $(window).height();

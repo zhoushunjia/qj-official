@@ -40,7 +40,16 @@ public class LoginController extends BaseController {
 
     @Autowired
     UserMapper userMapper;
-
+    
+    /** 
+     * 官网 
+     */
+    private String OFFICIAL_PREFIX = "/official/";
+    
+    /** 
+     * 后台管理页面
+     */
+//    private String ADMIN_PREFIX = "/view/";
     /**
      * 跳转到主页
      */
@@ -65,13 +74,41 @@ public class LoginController extends BaseController {
 //        String avatar = user.getAvatar();
 //        model.addAttribute("avatar", avatar);
 
-        return "/index.html";
+        return OFFICIAL_PREFIX + "/index.html";
     }
+    
+    /**
+     * 跳转到主页
+     */
+    @RequestMapping(value = "/admin/index", method = RequestMethod.GET)
+    public String admin(Model model) {
+    	
+        //获取菜单列表
+        List<Integer> roleList = ShiroKit.getUser().getRoleList();
+        if (roleList == null || roleList.size() == 0) {
+            ShiroKit.getSubject().logout();
+            model.addAttribute("tips", "该用户没有角色，无法登陆");
+            return "/login.html"; 
+        }
+        List<MenuNode> menus = menuDao.getMenusByRoleIds(roleList);
+        List<MenuNode> titles = MenuNode.buildTitle(menus);
+        titles = ApiMenuFilter.build(titles);
+
+        model.addAttribute("titles", titles);
+
+        //获取用户头像
+        Integer id = ShiroKit.getUser().getId();
+        User user = userMapper.selectById(id);
+        String avatar = user.getAvatar();
+        model.addAttribute("avatar", avatar);
+
+        return "/index.html";
+    }    
 
     /**
      * 跳转到登录页面
      */
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    @RequestMapping(value = "/admin/login", method = RequestMethod.GET)
     public String login() {
         if (ShiroKit.isAuthenticated() || ShiroKit.getUser() != null) {
             return REDIRECT + "/";
@@ -83,7 +120,7 @@ public class LoginController extends BaseController {
     /**
      * 点击登录执行的动作
      */
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    @RequestMapping(value = "/admin/login", method = RequestMethod.POST)
     public String loginVali() {
 
         String username = super.getPara("username").trim();
@@ -118,16 +155,16 @@ public class LoginController extends BaseController {
 
         ShiroKit.getSession().setAttribute("sessionFlag", true);
 
-        return REDIRECT + "/";
+        return REDIRECT + "/admin/index";
     }
 
     /**
      * 退出登录
      */
-    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+    @RequestMapping(value = "/admin/logout", method = RequestMethod.GET)
     public String logOut() {
         LogManager.me().executeLog(LogTaskFactory.exitLog(ShiroKit.getUser().getId(), getIp()));
         ShiroKit.getSubject().logout();
-        return REDIRECT + "/login";
+        return REDIRECT + "/admin/login";
     }
 }

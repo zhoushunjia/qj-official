@@ -273,7 +273,7 @@ $(function(){
 	}else{
 		url="/pcdesign/fixed/design/cs/read";
 	}
-	$.ajax({ //读取客服代码。 get/post 无参数
+/*	$.ajax({ //读取客服代码。 get/post 无参数
 		type: "GET",
 		url: url,
 		dataType: "json",
@@ -296,7 +296,7 @@ $(function(){
 		},
 		error:function(e) {
 		}
-	});
+	});*/
 	function dataShow(data,boole){
 		//生产环境下 1.改变颜色，2.选中，3.展示代码
 		var colorArr=[];

@@ -126,11 +126,11 @@ public class ShiroConfig {
         /**
          * 默认的登陆访问url
          */
-        shiroFilter.setLoginUrl("/login");
+        shiroFilter.setLoginUrl("/admin/login");
         /**
          * 登陆成功后跳转的url
          */
-        shiroFilter.setSuccessUrl("/");
+        shiroFilter.setSuccessUrl("/admin/index");
         /**
          * 没有权限跳转的url
          */
@@ -152,7 +152,20 @@ public class ShiroConfig {
         hashMap.put("/login", "anon");
         hashMap.put("/global/sessionError", "anon");
         hashMap.put("/kaptcha", "anon");
-        hashMap.put("/**", "anon");//user
+        
+        hashMap.put("/official/**", "anon");//user
+        hashMap.put("/", "anon");//user
+        hashMap.put("/official/**", "anon");//user
+//        hashMap.put("/admin", "anon");
+        hashMap.put("/customer/add", "anon");//user
+        hashMap.put("/**", "user");//user
+        
+       
+        
+        
+//        hashMap.put("/admin/**", "user");//user
+//        hashMap.put("/view/**", "user");//user
+//        hashMap.put("/official_view/**", "anon");//user
         shiroFilter.setFilterChainDefinitionMap(hashMap);
         return shiroFilter;
     }

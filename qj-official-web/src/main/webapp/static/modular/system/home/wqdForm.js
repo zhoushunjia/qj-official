@@ -1,4 +1,4 @@
-	$(function(){
+$(function(){
 	if($("html").html().indexOf('colorbox-min')==-1){
 		$("html").append('<script type="text/javascript" src="http://libs.wqdian.net/colorbox/jquery.colorbox-min.js"></script>');
 	}
@@ -138,10 +138,55 @@
             $(this).find('input').attr('name',$(this).attr('elementid'));
         }
     });
+    
+    $(".customer_form").validate({
+        errorElement:"em",
+        errorClass:"validate-error",
+        rules: {
+        	name: {
+                required: true,
+                maxlength: 20
+            },
+            phone: {
+                required: true,
+                minlength: 11
+            },
+            email: {
+                required: true,
+                email: true
+            }
+        },
+        messages: { 
+            name: {
+                required: "请输入您的姓名",
+                maxlength: "您输入的名字过长"
+            },
+            phone: {
+                required: "请输入您的手机号码",
+                minlength: "请输入正确的手机号码"
+            },
+            email: "请输入一个正确的邮箱"
+        },
+        onkeyup:false,
+        errorPlacement: function(error, element) {  
+        	error.appendTo(element.parent().parent().parent());  
+//        	.appendTo(element.parent().parent());  
+           /* if (element.is(":checkbox")||element.is(":radio")){  
+                
+            }else {                   
+                error.insertAfter(element);  
+            }  */
+        }          
+    });
+    
 	$(".wqdControlFormEl7 a").on("click",function(){
 		//模版和案例预览时 return
 		if(window.parent != window.self) return;
 
+		//校验
+	     if (!$(".customer_form").valid()) {
+	         return;
+	     }		
 		var html,elementid=$(this).parents(".wqdelementEdit.elementsContainer").attr("elementid");
 		if(getCookie("getCookie",elementid)){
 			html="<div class='colbox'><i class='tag success'></i><div class='point success'><h2>提交成功！</h2></div></div>";
@@ -171,7 +216,7 @@
 		var obj=$(this);
 		var form=obj.parents('[data-elementtype=formButton]').parent();
 		if(obj.children().html()=='提交成功') return false;
-        
+		arr=[];
 		formclass(form.find("[data-elementtype=formInput]"),//文本框
 			function(n){
 				for(var i=0;i<n;i++){
@@ -325,11 +370,26 @@
 			//sectionId = $(this).parents("section").parent().attr("id"),
 			sectionId =$(this).parents(".wqdelementEdit.elementsContainer").attr("elementid"),
 			value = "{" + newArrString.join(",") + "}";
+		//取出客户提交的信息
+		var data = {};
+		for(var x=0;x<newArrsort.length;x++){
+			for(var key in newArrsort[x][0]){
+//				if(key=="phone"){
+//					data[key] = parseInt(newArrsort[x][0][key]);
+//				}else{
+					data[key] = newArrsort[x][0][key];
+//				}
+				
+//				var valString =  '{"'+key+'":"'+newArrsort[x][0][key]+'"}';
+//				var data = JSON.parse(valString);
+//				datas.push(data);
+			}
+		} 
 		$.ajax({
-			url: '/fixed/form/submitForm',
+			url: '/customer/add',
 			dateType:'json',
 			type:'post', 
-			data : {'name':name,'sectionId':sectionId,'value':value,'fieldOrder':sortId.join(",")},
+			data : data, 
 			success:function(data, status) { 
 				if(data.status==200){ 
 					var text = obj.children().html();
@@ -351,5 +411,6 @@
 	$("body").on("click",".wqd-form-element.wqdControlFormEl1 input",function(e){
 		e.stopPropagation();
 	})
+	
 });
 //})(jQuery);
