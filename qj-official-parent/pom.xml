@@ -9,7 +9,7 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>../qj-official-admin</module>
+        <module>../qj-official-web</module>
         <module>../qj-official-core</module>
         <module>../qj-official-rest</module>
         <module>../qj-official-generator</module>
