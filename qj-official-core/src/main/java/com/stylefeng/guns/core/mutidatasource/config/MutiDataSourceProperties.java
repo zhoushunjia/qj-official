@@ -18,13 +18,13 @@ public class MutiDataSourceProperties {
     private String defaultDataSourceName = "dataSourceGuns";
 
     //默认多数据源的链接
-    private String url = "jdbc:mysql://127.0.0.1:3306/biz?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull";
+    private String url = "jdbc:mysql://120.78.135.211:3306/qj_official?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull";
 
     //默认多数据源的数据库账号
     private String username = "root";
 
     //默认多数据源的数据库密码
-    private String password = "root";
+    private String password = "qjkj@999";
 
     public void config(DruidDataSource dataSource) {
         dataSource.setUrl(url);

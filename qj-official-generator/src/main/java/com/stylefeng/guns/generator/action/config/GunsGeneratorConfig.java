@@ -18,7 +18,7 @@ public class GunsGeneratorConfig extends AbstractGeneratorConfig {
         globalConfig.setBaseResultMap(true);
         globalConfig.setBaseColumnList(true);
         globalConfig.setOpen(false);
-        globalConfig.setAuthor("fengshuonan");
+        globalConfig.setAuthor("zhoushunjia");
     }
 
     protected void dataSourceConfig() {
@@ -26,7 +26,7 @@ public class GunsGeneratorConfig extends AbstractGeneratorConfig {
         dataSourceConfig.setDriverName("com.mysql.jdbc.Driver");
         dataSourceConfig.setUsername("root");
         dataSourceConfig.setPassword("root");
-        dataSourceConfig.setUrl("jdbc:mysql://127.0.0.1:3306/adi_user_center?characterEncoding=utf8");
+        dataSourceConfig.setUrl("jdbc:mysql://39.108.178.160:3306/adi_user_center?characterEncoding=utf8");
     }
 
     protected void strategyConfig() {

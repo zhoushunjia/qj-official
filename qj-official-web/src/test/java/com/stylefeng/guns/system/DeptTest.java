@@ -1,4 +1,4 @@
-package com.stylefeng.guns.system;
+/*package com.stylefeng.guns.system;
 
 import com.stylefeng.guns.base.BaseJunit;
 import com.stylefeng.guns.common.persistence.dao.DeptMapper;
@@ -13,12 +13,12 @@ import java.util.Map;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-/**
+*//**
  * 字典服务测试
  *
  * @author fengshuonan
  * @date 2017-04-27 17:05
- */
+ *//*
 public class DeptTest extends BaseJunit {
 
     @Resource
@@ -61,3 +61,4 @@ public class DeptTest extends BaseJunit {
         assertTrue(list.size() > 0);
     }
 }
+*/

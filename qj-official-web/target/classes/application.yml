@@ -33,7 +33,7 @@ spring:
     port: 6379
     password:
   profiles:
-    active: dev
+    active: produce
   mvc:
     static-path-pattern: /static/**
     view:
@@ -46,7 +46,7 @@ spring:
       max-file-size: 100MB #最大文件大小
   devtools:
     restart:
-      enabled: true #是否开启开发者工具（true/false）#热部署生效
+      enabled: false #是否开启开发者工具（true/false）#热部署生效
       additional-paths: src/main/java #设置重启的目录
       exclude: static/**,WEB-INF/view/** #classpath目录下的WEB-INF文件夹内容修改不重启
   aop:
@@ -76,9 +76,9 @@ mybatis-plus:
 spring:
   profiles: dev
   datasource:
-    url: jdbc:mysql://39.108.178.160:3306/qj_official?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false
-    username: qj_official_root
-    password: 123
+    url: jdbc:mysql://120.78.135.211:3306/qj_official?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false
+    username: root
+    password: qjkj@999
     db-name: qj_official
     filters: log4j,wall,mergeStat
 
@@ -86,20 +86,20 @@ spring:
 guns:
   flowable:
     datasource:
-      url: jdbc:mysql://39.108.178.160:3306/qj_official_flowable?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
-      username: qj_official_root
-      password: 123
+      url: jdbc:mysql://120.78.135.211:3306/qj_official_flowable?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
+      username: root
+      password: qjkj@999
   muti-datasource:
     default-dataSource-name: dataSourceGuns #默认的数据源名称
-    url: jdbc:mysql://39.108.178.160:3306/qj_official_flowable?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
-    username: qj_official_root
-    password: 123
+    url: jdbc:mysql://120.78.135.211:3306/qj_official_flowable?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
+    username: root
+    password: qjkj@999
 
 logging:
   level.root: info
   level.com.stylefeng: debug
   path: logs/
-  file: guns.log
+  file: qj-official.log
 
 ---
 
@@ -109,9 +109,9 @@ logging:
 spring:
   profiles: produce
   datasource:
-      url: jdbc:mysql://39.108.178.160:3306/guns?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
-      username: qj_official_root
-      password: 123
+      url: jdbc:mysql://120.78.135.211:3306/qj_official?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false
+      username: root
+      password: qjkj@999
       filters: log4j,wall,mergeStat
 
 logging:

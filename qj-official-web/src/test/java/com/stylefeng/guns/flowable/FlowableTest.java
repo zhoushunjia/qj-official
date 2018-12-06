@@ -1,4 +1,4 @@
-package com.stylefeng.guns.flowable;
+/*package com.stylefeng.guns.flowable;
 
 import com.alibaba.fastjson.JSON;
 import org.flowable.engine.*;
@@ -16,12 +16,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
-/**
+*//**
  * 工作流的业务测试
  *
  * @author fengshuonan
  * @date 2017-12-02 20:37
- */
+ *//*
 public class FlowableTest {
 
     ProcessEngine processEngine;
@@ -29,18 +29,18 @@ public class FlowableTest {
     @Before
     public void init() {
         ProcessEngineConfiguration cfg = new StandaloneProcessEngineConfiguration()
-                .setJdbcUrl("jdbc:mysql://127.0.0.1:3306/guns_flowable?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull")
-                .setJdbcUsername("root")
-                .setJdbcPassword("root")
+                .setJdbcUrl("jdbc:mysql://39.108.178.160:3306/qj_official_flowable?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull")
+                .setJdbcUsername("qj_official_root")
+                .setJdbcPassword("123")
                 .setJdbcDriver("com.mysql.jdbc.Driver")
                 .setDatabaseSchemaUpdate(ProcessEngineConfiguration.DB_SCHEMA_UPDATE_TRUE);
 
         processEngine = cfg.buildProcessEngine();
     }
 
-    /**
+    *//**
      * 发布流程
-     */
+     *//*
     @Test
     public void deploy() {
         RepositoryService repositoryService = processEngine.getRepositoryService();
@@ -54,9 +54,9 @@ public class FlowableTest {
         System.out.println("Found process definition : " + processDefinition.getName());
     }
 
-    /**
+    *//**
      * 查看发布
-     */
+     *//*
     @Test
     public void findDeploy() {
         RepositoryService repositoryService = processEngine.getRepositoryService();
@@ -69,9 +69,9 @@ public class FlowableTest {
         }
     }
 
-    /**
+    *//**
      * 启动流程
-     */
+     *//*
     @Test
     public void start() {
         HashMap<String, Object> map = new HashMap<>();
@@ -82,9 +82,9 @@ public class FlowableTest {
         System.out.println("getProcessDefinitionId = " + processInstance.getProcessDefinitionId());
     }
 
-    /**
+    *//**
      * 查看流程定义
-     */
+     *//*
     @Test
     public void queryProcess() {
         List<ProcessInstance> list1 = processEngine.getRuntimeService().createProcessInstanceQuery().list();
@@ -110,9 +110,9 @@ public class FlowableTest {
         }
     }
 
-    /**
+    *//**
      * 删除流程定义
-     */
+     *//*
     @Test
     public void delProcess() {
         processEngine.getRuntimeService().deleteProcessInstance("67501","abcd");
@@ -120,9 +120,9 @@ public class FlowableTest {
         System.out.println("删除成功");
     }
 
-    /**
+    *//**
      * 查看任务
-     */
+     *//*
     @Test
     public void queryMyTask() {
         String name = "张三";
@@ -137,9 +137,9 @@ public class FlowableTest {
         System.out.println("查询完毕!");
     }
 
-    /**
+    *//**
      * 完成任务
-     */
+     *//*
     @Test
     public void complete() {
         HashMap<String, Object> map = new HashMap<>();
@@ -150,9 +150,9 @@ public class FlowableTest {
 
     public static void main(String[] args) {
         ProcessEngineConfiguration cfg = new StandaloneProcessEngineConfiguration()
-                .setJdbcUrl("jdbc:mysql://127.0.0.1:3306/flowable?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull")
-                .setJdbcUsername("root")
-                .setJdbcPassword("root")
+                .setJdbcUrl("jdbc:mysql://39.108.178.160:3306/qj_official_flowable?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull")
+                .setJdbcUsername("qj_official_root")
+                .setJdbcPassword("123")
                 .setJdbcDriver("com.mysql.jdbc.Driver")
                 .setDatabaseSchemaUpdate(ProcessEngineConfiguration.DB_SCHEMA_UPDATE_TRUE);
 
@@ -211,3 +211,4 @@ public class FlowableTest {
     }
 
 }
+*/

@@ -44,7 +44,7 @@ public class LoginController extends BaseController {
     /** 
      * 官网 
      */
-    private String OFFICIAL_PREFIX = "/official/";
+    private String OFFICIAL_PREFIX = "/official";
     
     /** 
      * 后台管理页面

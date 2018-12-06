@@ -20,7 +20,7 @@ import com.stylefeng.guns.modular.system.dao.LogDao;
 @Controller
 public class HomeController extends BaseController {
 
-	private String PREFIX = "/official/system/";
+	private String PREFIX = "/official/system";
 
     @Resource
     private OperationLogMapper operationLogMapper;
